@@ -1,0 +1,193 @@
+/****************************************
+* REUSABLE
+****************************************/
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 240%;
+}
+
+h3 {
+    font-size: 140%;
+}
+
+h2::after {
+    display: block;
+    content: " ";
+    height: 2px;
+    width: 100px;
+    background-color: #fe8457;
+    margin: 10px auto;
+}
+
+.text-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/***************************************/
+/* NAVIGATION */
+/***************************************/
+
+/* Styling located in shared.css */
+
+/***************************************/
+/* WORKOUT */
+/***************************************/
+
+.history-head, .message {
+    color: #fff;
+}
+
+.message {
+    display: block;
+    margin: 80px auto 0;
+    text-align: center;
+}
+
+
+.log-wrk-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 120%;
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #fe8457;
+    color: #fff;
+    border-radius: 20px;
+    -webkit-transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.log-wrk-btn:hover {
+    background-color: #eb7245;
+    border-color: #eb7245;
+}
+
+.page {
+    display: none;
+    text-align: center;
+    max-width: 1148px;
+    margin: 20px auto;
+    overflow: auto;
+}
+
+.clear-history {
+    display: none;
+    width: 200px;
+    margin: 40px auto 80px;
+    text-align: center;
+}
+
+.clr-history-btn {
+    color: #fe8457;
+    font-size: 110%;
+    padding: 5px 0;
+}
+
+.clr-history-btn:hover {
+    border-bottom: 2px solid #fe8457;
+}
+
+
+/***************************************/
+/* WORKOUT SUMMARY */
+/***************************************/
+
+.workout-summary {
+    display: inline-block;
+    text-align: left;
+    background-color: #fff;
+    padding: 15px 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 95%;
+}
+
+.workout-header {
+    display: block;
+    overflow: auto;
+}
+
+.date {
+    margin-top: 5px;
+}
+
+.workout-header h3 {
+    float: left;
+}
+
+.remove-btn {
+    visibility: hidden;
+    cursor: pointer;
+    float: right;
+}
+
+.workout-header:hover .remove-btn{
+    visibility: visible;
+    margin: 0 5px 0 0;
+}
+
+
+/***************************************/
+/* EXERCISE */
+/***************************************/
+
+.exercise-list {
+    list-style: none;
+}
+
+.exercise-list li {
+    margin-top: 20px;
+    border-bottom: 1px solid #aaa;
+}
+
+.exercise-list li:last-child {
+    border: none;
+}
+
+.exercise-list h4 {
+    color: #fe8457;
+}
+
+.set-table {
+    width: 100%;
+}
+
+.set-table td,
+.set-table th {
+    margin: 5px;
+    padding: 5px;
+}
+
+.positive {
+    color: #129d63;
+}
+
+.negative { color: #cf4646; }
+
+/***************************************/
+/* MEDIA */
+/***************************************/
+
+@media only screen and (max-width: 1200px) {
+    .page { width: 100%; }
+}
+
+@media only screen and (max-width: 1023px) {
+    h2 { margin-top: 40px; }
+}
+
+@media only screen and (max-width: 767px) {
+    h2 { margin-top: 30px; }
+}
+
+@media only screen and (max-width: 480px) {
+    .message { margin-top: 60px; }
+}

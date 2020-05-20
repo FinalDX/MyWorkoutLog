@@ -1,0 +1,208 @@
+.row {
+    width: 1148px;
+    margin: 0 auto;
+}
+
+/****************************************
+* REUSABLE
+****************************************/
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+.home-text {
+    font-size: 260%;
+    color: #fff;
+    line-height: 120%;
+    letter-spacing: 1px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 240%;
+}
+
+h2::after {
+    display: block;
+    content: " ";
+    height: 2px;
+    width: 100px;
+    background-color: #fe8457;
+    margin: 10px auto;
+}
+
+h3 {
+    font-size: 160%;
+}
+
+
+/***************************************/
+/* NAVIGATION */
+/***************************************/
+
+/* Styling located in shared.css */
+
+/***************************************/
+/* HEADER */
+/***************************************/
+
+.main-header {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
+
+.log-wrk-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 120%;
+    margin-top: 5px;
+    padding: 5px 15px;;
+    background-color: #fe8457;
+    color: #fff;
+    border-radius: 20px;
+    -webkit-transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.log-wrk-btn:hover {
+    background-color: #eb7245;
+    border-color: #eb7245;
+}
+
+
+/***************************************/
+/* ABOUT */
+/***************************************/
+
+.sub-section {
+    padding-top: 60px;
+    padding-bottom: 20px
+}
+
+.odd {
+    background-color: #f9f9f9;
+}
+
+.intro {
+    font-size: 120%;
+    word-spacing: 2px;
+    text-align: center;
+}
+
+.panel-container {
+    margin: 60px auto 10px;
+    padding: 5px;
+
+}
+
+.panel {
+    display: block;
+    overflow: auto;
+    margin-bottom: 40px;
+}
+
+.panel h3 { color: #eb7245; }
+
+.panel-image {
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+}
+
+/***************************************/
+/* HOW IT WORKS */
+/***************************************/
+
+.instructions {
+    padding: 20px;
+    width: 840px;
+    margin: 20px auto;
+    line-height: 150%;
+}
+
+.instructions h3 { margin-bottom: 20px; }
+
+.instructions li { margin-bottom: 10px;}
+
+
+/***************************************/
+/* FOOTER */
+/***************************************/
+
+footer {
+    background-color: #333;
+    text-align: center;
+    overflow: auto;
+}
+
+.credit {
+    color: #ddd;
+    padding: 20px 0;
+}
+
+/***************************************/
+/* MEDIA */
+/***************************************/
+
+@media only screen and (max-width: 1200px) { 
+    .row { 
+        width: 100%;
+        padding: 0 5px;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .sub-section {
+        padding-top: 30px;
+        padding-bottom: 20px
+    }
+
+    .panel-container { margin-top: 40px; }
+
+    .panel { margin-bottom: 30px; }
+    
+    .instructions { 
+        width: 80%;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .sub-section {
+        padding-top: 20px;
+        padding-bottom: 10px
+    }
+
+    .panel { margin-bottom: 40px; }
+
+    .panel-image {
+        float: none;
+        height: 300px;
+        width: 400px;
+        margin-right: 10px;
+    }
+
+    .instructions { 
+        width: 90%;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    .panel-container { 
+        text-align: center; 
+    }
+
+    .panel, .panel-image { 
+        width: 100%;
+        padding: 0;
+    }
+
+    .panel-image { margin: 0; }
+
+    
+}

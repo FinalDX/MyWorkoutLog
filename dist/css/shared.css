@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    color: #555;
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+/****************************************
+* HEADER
+****************************************/
+
+.logo {
+    display: block;
+    width: 500px;
+    margin: 20px auto 5px;
+    overflow: auto;
+}
+
+.logo img {
+    float: left;
+    width: 100px;
+}
+
+.title {
+    display: inline-block;
+    font-size: 260%;
+    color: #000;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+
+.main-nav {
+    display: block;
+    background-color: #333;
+}
+
+.main-nav ul {
+    list-style: none;
+}
+
+.main-nav li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-nav li:hover,
+.main-nav li:active {
+    background-color: #fe8457;
+}
+
+.mobile-nav-icon {
+    float: left;
+    cursor: pointer;
+    display: none;
+    margin: 20px 0 0 20px;
+}
+
+.mobile-nav-icon i {
+    font-size: 200%;
+}
+
+/****************************************
+* WORKOUT CONTAINER
+****************************************/
+
+.workout-container {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/background-alt-min.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/background-alt-min.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 95vh;
+    overflow: auto;
+}
+
+/***************************************/
+/* MEDIA */
+/***************************************/
+
+@media only screen and (max-width: 1023px) {
+    body { font-size: 18px; }
+
+    .logo {
+        width: 400px;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+
+    .title { 
+        font-size: 240%;
+        margin-top: 30px;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .workout-container {
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/background-mobile-min.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/background-mobile-min.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 95vh;
+        overflow: auto;
+    }
+    
+    body { font-size: 16px; }
+
+    .logo {
+        margin: 10px auto 0;
+        width: 350px;
+    }
+
+    .logo img {
+        width: 70px;
+    }
+
+    .title { 
+        font-size: 240%;
+        margin-top: 25px;
+    }
+
+    .main-nav { display: none; }
+
+    .main-nav { 
+        position: absolute;
+        z-index: 99;
+    }
+
+    .main-nav li {
+        display: block;
+    }
+
+    .main-nav li a:link,
+    .main-nav li a:visited {
+        font-size: 150%;
+        display: block;
+        border: 0;
+    }
+
+    .mobile-nav-icon {
+        display: inline-block;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .workout-container {
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/background-miny-mobile-min.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/background-miny-mobile-min.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 95vh;
+        overflow: auto;
+    }
+
+    .logo {
+        width: 300px;
+        margin-top: 5px;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .title { 
+        font-size: 200%;
+        margin-top: 14px;
+    }
+
+    .mobile-nav-icon {
+        margin-top: 0px;
+    }  
+}

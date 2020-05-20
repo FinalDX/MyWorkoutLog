@@ -1,0 +1,343 @@
+/****************************************
+* REUSABLE
+****************************************/
+
+h1, h2, h3 { font-weight: 300; }
+
+h2, h3 { margin-bottom: 4px; }
+
+h2 { font-size: 180%; }
+
+h3 { font-size: 140%; }
+
+.btn {
+    cursor: pointer;
+    font-size: 100%;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+.text-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+
+/***************************************/
+/* NAVIGATION */
+/***************************************/
+
+/* Styling located in shared.css */
+
+/***************************************/
+/* WORKOUT */
+/***************************************/
+
+.page {
+    display: block;
+    max-width: 1148px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* WORKOUT CONTROLS */
+
+.workout-controls {
+    display: block;
+    overflow: auto;
+}
+
+.top {
+    border-bottom: 1px solid #ddd;
+}
+
+.bottom {
+    border-top: 1px solid #ddd;
+}
+
+.workout-name-box {
+    cursor: pointer;
+    float: left;
+}
+
+.workout-date {
+    float: right;
+}
+
+.date-picker {
+    font-size: 100%;
+    padding: 4px;
+    margin-top: 10px;
+    border: none;
+}
+
+.workout-title {
+    display: inline-block;
+}
+
+.workout-name-input {
+    display: none;
+    font-size: 160%;
+    width: 200px;
+    margin: 5px 0;
+    color: #555;
+    font-weight: 100;
+}
+
+.ion-compose {
+    margin-left: 10px;
+    color: rgb(107, 193, 224);
+}
+
+
+/* WORKOUT FOOTER */
+
+.complete-btn, .cancel-btn { 
+    float: right;
+    margin-top: 10px; 
+}
+
+.cancel-btn {
+    color: #fff;
+    border-color: #fe5757;
+    background-color: #fe5757;
+    -webkit-transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
+    margin-right: 10px;
+}
+
+.cancel-btn:hover {
+    background-color: #cf4646;
+    border-color: #cf4646;
+}
+
+.complete-btn {
+    color: #fff;
+    border-color: #129d63;
+    background-color: #129d63;
+    -webkit-transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.complete-btn:hover {
+    background-color: #0d7c4e;
+    border-color: #0d7c4e;
+}
+
+
+/***************************************/
+/* EXERCISE */
+/***************************************/
+
+.exercise-controls {
+    display: block;
+    overflow: auto;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.select-controls, .btn-controls { display: inline-block; }
+
+.select-muscle-group,
+.select-exercise {
+    margin-right: 10px;
+    font-size: 100%;
+}
+
+.add-exercise-btn {
+    color: #fff;
+    border-color: #fe8457;
+    background-color: #fe8457;
+    -webkit-transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.add-exercise-btn:hover {
+    background-color: #eb7245;
+    border-color: #eb7245;
+}
+
+.create-exercise-btn {
+    color: #fe8457;
+    font-size: 100%;
+    margin: 0 10px;
+    padding: 5px 0;
+}
+
+.create-exercise-btn:hover {
+    border-bottom: 2px solid #fe8457;
+}
+
+.exercise-container {
+    width: 100%;
+}
+
+.exercise {
+    display: inline-block;
+    width: 340px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.exercise-ID {
+    display: none;
+}
+
+.exercise-header {
+    display: block;
+    overflow: auto;
+}
+
+.exercise-header:hover .remove-btn {
+    visibility: visible;
+    margin: 0 5px;
+}
+
+.exercise-header .remove-btn {
+    float: right;
+    color: #fe8457;
+}
+
+.exercise-name {
+    color: #fe8457;
+    float: left;
+}
+
+/***************************************/
+/* SET */
+/***************************************/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.set td,
+.set-header th {
+    padding: 10px;
+    margin: 5px;
+}
+
+tr:nth-child(even) { background-color: #f2f2f2; }
+
+.set {
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.set:hover { 
+    background-color: #129d63;
+    color: #fff;
+
+}
+
+.set:hover .remove-set-btn {
+    visibility: visible;
+}
+
+.reps-input,
+.lbs-input {
+    width: 100%;
+    font-size: 100%;
+}
+
+.remove-set-col {
+    text-align: center;
+}
+
+.remove-btn, .remove-set-btn {
+    visibility: hidden;
+    cursor: pointer
+}
+
+.set-controls td {
+    padding: 5px;
+}
+
+.add-set-btn {
+    cursor: pointer;
+    border-style: solid;
+    background-color: #129d63;
+    border-color: #129d63;
+    color: #fff;
+    font-size: 80%;
+    width: 100%;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+
+
+/***************************************/
+/* MEDIA */
+/***************************************/
+
+@media only screen and (max-width: 1200px) {
+    .page {
+        width: 99%;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+
+    .page {
+        padding: 10px;
+    }
+
+    .exercise {
+        width: 300px;
+        margin: 0 0 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .exercise {
+        width: 340px;
+    }
+
+
+    .workout-date, .workout-name-box {
+        float: none;
+        display: block;
+    }
+
+    .workout-date { margin-bottom: 5px; }
+
+    .create-exercise-btn {
+        margin-right: 2px;
+        margin-bottom: 5px;
+    }
+
+    .select-controls, .btn-controls { display: block; }
+
+    .add-exercise-btn, .create-exercise-btn { 
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .select-muscle-group, .select-exercise {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    .exercise {
+        display: block;
+        width: 100%;
+    }
+
+    .ion-compose{ margin-left: 0;}
+
+}
