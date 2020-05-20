@@ -11,6 +11,8 @@ export const elements = {
     cancelBtn: document.querySelector('.cancel-btn'),
     completeBtn: document.querySelector('.complete-btn'),
     dateInput: document.querySelector('.date-picker'),
+    modalAlert: document.querySelector('.modal'),
+    modalAlertBtn: document.querySelector('.modal-btn'),
     // History view elements
     page: document.querySelector('.page'),
     message: document.querySelector('.message'),

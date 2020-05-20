@@ -50,25 +50,55 @@ window.addEventListener('load', () => {
 
 // Switch out workout name for an input textbox
 elements.workoutNameBox.addEventListener('click', () => {
+    // Hide workout title
     elements.workoutTitle.style.display = 'none';
+    // Show workout name input
     elements.workoutNameInput.style.display = 'inline-block' 
+});
+//-------------------------------------------------------------
+
+window.addEventListener('click', (e) => {
+    // Get workout name input value
+    const workoutInput = elements.workoutNameInput.value;
+    // If workout name input is displayed and
+    // if the click event was NOT on the workout name input and
+    // if the click event was NOT on the workout title and
+    // if the workout name input has text
+    if (elements.workoutNameInput.style.display === 'inline-block' &&
+        !e.target.matches('.workout-name-input') &&
+        !e.target.matches('.workout-title')) {
+            if (workoutInput.length > 0) {
+                 // Update Workout Object
+                state.workout.setName(workoutInput);
+
+                // Update UI
+                workoutView.updateWorkoutName(workoutInput);
+            }
+            // Show workout title
+            elements.workoutTitle.style.display = 'inline-block';
+            // Hide workout name input
+            elements.workoutNameInput.style.display = 'none';
+        }
 });
 //-------------------------------------------------------------
 
 // Use input name in textbox to replace workout name header
 elements.workoutNameInput.addEventListener('keypress', e => {
     if (e.key === 'Enter') {
-        
         // Get workout name input value
         const workoutInput = elements.workoutNameInput.value;
+        // If workout name input has text
+        if (workoutInput.length > 0) {
+            // Update Workout Object
+            state.workout.setName(workoutInput);
 
-        // Update Workout Object
-        state.workout.setName(workoutInput);
-
-        // Update UI
-        workoutView.updateWorkoutName(workoutInput);
-        elements.workoutTitle.style.display = 'inline-block';
-        elements.workoutNameInput.style.display = 'none'; 
+            // Update UI
+            workoutView.updateWorkoutName(workoutInput);
+            // Show workout title
+            elements.workoutTitle.style.display = 'inline-block';
+            // Hide workout name input
+            elements.workoutNameInput.style.display = 'none';
+        }
     } 
 });
 //-------------------------------------------------------------
@@ -96,16 +126,18 @@ elements.cancelBtn.addEventListener('click', () => {
 
 // Complete workout
 elements.completeBtn.addEventListener('click', () => {
-    if (window.confirm("Are you sure you want to complete this workout?")) {
-        // Save workout in local storage
-        state.workout.saveWorkout();
+    if (state.workout.exercises.length > 0) {
+        if (window.confirm("Are you sure you want to complete this workout?")) {
+            // Save workout in local storage
+            state.workout.saveWorkout();
 
-        // Remove all exercises from workout object and reset workout name
-        state.workout = new Workout();
-        state.workout.saveSession();
+            // Remove all exercises from workout object and reset workout name
+            state.workout = new Workout();
+            state.workout.saveSession();
 
-        // Update the UI
-        workoutView.removeAllExercises();
+            // Update the UI
+            workoutView.removeAllExercises();
+        }
     }
 });
 
@@ -139,7 +171,7 @@ elements.addExerciseBtn.addEventListener('click', () => {
             workoutView.setPreviousValues(newExercise.id, prevExercise);
         }
     } else {
-        window.alert("Please select an exercise!");
+        elements.modalAlert.style.display = 'block';
     }
 });
 //-------------------------------------------------------------
@@ -251,3 +283,17 @@ elements.exerciseContainer.addEventListener('click', e => {
 });
 //-------------------------------------------------------------
 
+
+/***************************************/
+/* MODAL CONTROLLER */ 
+/***************************************/
+
+elements.modalAlert.addEventListener('click', e => {
+    if (e.target.matches('.modal')) {
+        elements.modalAlert.style.display = 'none';
+    }
+});
+
+elements.modalAlertBtn.addEventListener('click', () => {
+    elements.modalAlert.style.display = 'none';
+});
