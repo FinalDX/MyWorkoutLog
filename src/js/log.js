@@ -1,10 +1,11 @@
 import Workout from './models/Workout';
 import * as workoutView from './views/workoutView';
+import * as modal from './views/modal';
 import { elements } from './views/base';
 import './jquery/jquery';
 
 // Initialize state
-const state = {};
+const state = { modalFlag: false};
 
 /***************************************/
 /* PAGE LOAD CONTROLLER */ 
@@ -113,31 +114,16 @@ elements.dateInput.addEventListener('change', e => {
 // Cancel workout
 elements.cancelBtn.addEventListener('click', () => {
     if (state.workout.exercises.length > 0) {
-        if (window.confirm("Canceling this workout will permanently remove all exercises, do you wish to continue?")) {
-
-            // Remove all exercises from workout object
-            state.workout.cancelWorkout();
-
-            // Update the UI
-            workoutView.removeAllExercises();
-        }
+        modal.confirm("Canceling this workout will permanently remove all exercises, do you wish to continue?", 'cancel-wrkout');
+        // Further actions are taken by the modal controller
     }
 });
 
 // Complete workout
 elements.completeBtn.addEventListener('click', () => {
     if (state.workout.exercises.length > 0) {
-        if (window.confirm("Are you sure you want to complete this workout?")) {
-            // Save workout in local storage
-            state.workout.saveWorkout();
-
-            // Remove all exercises from workout object and reset workout name
-            state.workout = new Workout();
-            state.workout.saveSession();
-
-            // Update the UI
-            workoutView.removeAllExercises();
-        }
+        modal.confirm("Are you sure you want to complete this workout?", 'complete-wrkout');
+        // Further actions are taken by the modal controller
     }
 });
 
@@ -171,32 +157,15 @@ elements.addExerciseBtn.addEventListener('click', () => {
             workoutView.setPreviousValues(newExercise.id, prevExercise);
         }
     } else {
-        elements.modalAlert.style.display = 'block';
+        modal.alert('Please select an exercise!');
     }
 });
 //-------------------------------------------------------------
 
 // Add created exercise to the workout
 elements.createExerciseBtn.addEventListener('click', () => {
-    const exerciseName = window.prompt("Please enter an exercise name:", "Exercise name");
-    // Ensure exercise name is not null or empty
-    if (exerciseName !== null && exerciseName !== "") {
-        // Ensure exercise name contains only letters
-        if(/^[a-zA-Z- ]+$/.test(exerciseName) && exerciseName.length <= 20) {
-            // Add exercise to workout object
-            const newExercise = state.workout.addExercise(exerciseName);
-            const prevExercise = state.workout.getPreviousExercise(exerciseName);
-            
-            // If exercise list is under limit
-            if (newExercise) {
-                // Render exercise to the UI
-                workoutView.renderExercise(newExercise);
-                workoutView.setPreviousValues(newExercise.id, prevExercise);
-            }
-        } else {
-            window.alert("Exercise name can NOT be more than 20 characters long and it can NOT contain numbers or special characters!");
-        }
-    }
+    modal.prompt("Please enter an exercise name:");
+    // Further actions are taken by the modal controller
 });
 //-------------------------------------------------------------
 
@@ -281,19 +250,88 @@ elements.exerciseContainer.addEventListener('click', e => {
         workoutView.setPreviousValues(exerciseID, prevExercise);
     }
 });
-//-------------------------------------------------------------
+//-----------------------------------------------------
 
 
 /***************************************/
 /* MODAL CONTROLLER */ 
 /***************************************/
 
-elements.modalAlert.addEventListener('click', e => {
-    if (e.target.matches('.modal')) {
-        elements.modalAlert.style.display = 'none';
-    }
-});
+elements.modalContainer.addEventListener('click', e => {
+    const click = e.target;
+    let currentModal = null;
+    let modalContainer = null;
 
-elements.modalAlertBtn.addEventListener('click', () => {
-    elements.modalAlert.style.display = 'none';
+    // If the outside area of a modal box was clicked
+    if (click.matches('.modal')) {
+        currentModal = click;
+        modalContainer = currentModal.parentElement;
+        // Remove modal
+        modalContainer.removeChild(currentModal);
+
+    // If a cancel or OK button was clicked
+    } else if (click.matches('.modal-btn')) {
+        currentModal = click.parentElement.parentElement.parentElement;
+        modalContainer = currentModal.parentElement;
+        // Remove modal
+        modalContainer.removeChild(currentModal);
+
+    // If create exercise button was clicked
+    } else if (click.matches('.modal-input-btn')) {
+        const exerciseName = click.parentElement.parentElement.querySelector('.modal-input').value;
+        currentModal = click.parentElement.parentElement.parentElement;
+        modalContainer = currentModal.parentElement;
+        // If exercise name is not null or empty
+        if (exerciseName !== null && exerciseName !== "") {
+            // If exercise name contains only letters
+            if(/^[a-zA-Z- ]+$/.test(exerciseName)) {
+                // Remove modal
+                modalContainer.removeChild(currentModal);
+
+                // Add exercise to workout object
+                const newExercise = state.workout.addExercise(exerciseName);
+                const prevExercise = state.workout.getPreviousExercise(exerciseName);
+                
+                // If exercise list is under limit
+                if (newExercise) {
+                    // Render exercise to the UI
+                    workoutView.renderExercise(newExercise);
+                    workoutView.setPreviousValues(newExercise.id, prevExercise);
+                }
+            } else {
+                modal.alert("Exercise name can NOT contain numbers or special characters!");
+            }
+        }
+
+    // If Complete Workout button was clicked
+    } else if (click.matches('.modal-complete-wrkout-btn')) {
+        currentModal = click.parentElement.parentElement.parentElement;
+        modalContainer = currentModal.parentElement;
+        // Remove modal
+        modalContainer.removeChild(currentModal);
+
+        // Save workout in local storage
+        state.workout.saveWorkout();
+
+        // Remove all exercises from workout object and reset workout name
+        state.workout = new Workout();
+        state.workout.saveSession();
+
+        // Update the UI
+        workoutView.removeAllExercises();
+    
+
+    // If Cancel Workout button was clicked
+    } else if (click.matches('.modal-cancel-wrkout-btn')) {
+        currentModal = click.parentElement.parentElement.parentElement;
+        modalContainer = currentModal.parentElement;
+        // Remove modal
+        modalContainer.removeChild(currentModal);
+
+        // Remove all exercises from workout object
+        state.workout.cancelWorkout();
+
+        // Update the UI
+        workoutView.removeAllExercises();
+    }
 });

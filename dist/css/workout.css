@@ -279,40 +279,18 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     padding: 2px 4px;
 }
 
-
 /***************************************/
 /* MODALS */
 /***************************************/
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-box {
-    background-color: #fff;
-    margin: 25% auto;
-    padding: 20px;
-    border: 1px solid #555;
-    width: 80%;
-    overflow: auto;
-}
-
-.modal-text {
-    margin-bottom: 40px;
-}
-
-.modal-btn {
+.modal-btn, 
+.modal-input-btn, 
+.modal-complete-wrkout-btn,
+.modal-cancel-wrkout-btn {
     float: right;
+    margin: 20px 20px 20px 0;
+    min-width: 80px
 }
-
 
 /***************************************/
 /* MEDIA */
@@ -338,11 +316,6 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 
 @media only screen and (max-width: 767px) {
 
-    .exercise {
-        width: 340px;
-    }
-
-
     .workout-date, .workout-name-box {
         float: none;
         display: block;
@@ -350,21 +323,29 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 
     .workout-date { margin-bottom: 5px; }
 
+    .select-controls, .btn-controls { display: block; }
+
+    .select-muscle-group, .select-exercise {
+        margin-top: 20px;
+    }
+
     .create-exercise-btn {
         margin-right: 2px;
         margin-bottom: 5px;
     }
-
-    .select-controls, .btn-controls { display: block; }
 
     .add-exercise-btn, .create-exercise-btn { 
         margin-top: 20px;
         margin-bottom: 20px;
     }
 
-    .select-muscle-group, .select-exercise {
-        margin-top: 20px;
+    .exercise {
+        width: 340px;
     }
+
+    .remove-btn { font-size: 140%; }
+
+    .remove-set-btn { font-size: 130% }
 }
 
 @media only screen and (max-width: 480px) {

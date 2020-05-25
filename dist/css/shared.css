@@ -82,9 +82,48 @@ html {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 95vh;
+    height: 85vh;
     overflow: auto;
 }
+
+/***************************************/
+/* MODALS */
+/***************************************/
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-box {
+    background-color: #fff;
+    margin: 15% auto 0;
+    border: 1px solid #555;
+    width: 80%;
+}
+
+.modal-text { margin: 20px 0 10px 20px}
+
+.modal-input { 
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.modal-btn-container {
+    width: 100%;
+    margin-top: 40px;
+    background-color: #eee;
+    overflow: auto;
+}
+
+.modal-btn { margin-right: 40px}
 
 /***************************************/
 /* MEDIA */
@@ -157,6 +196,8 @@ html {
         display: inline-block;
         margin-top: 10px;
     }
+
+    .modal-box { margin-top: 25%; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -187,4 +228,6 @@ html {
     .mobile-nav-icon {
         margin-top: 0px;
     }  
+
+    .modal-box { margin-top: 30%; }
 }

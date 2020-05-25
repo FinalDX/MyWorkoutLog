@@ -53,6 +53,10 @@ const renderSummary = workout => {
             </div>
             <ul class="exercise-list">
             </ul>
+            <div class="arrow-container">
+                <i class="ion-chevron-down"></i>
+                <i class="ion-chevron-up"></i>
+            </div>
         </div>
     `;
     elements.page.insertAdjacentHTML('beforeend', markup);
@@ -144,6 +148,12 @@ const percentOfChange = (newValue, oldValue) => {
         result = (((newValue - oldValue) / oldValue) * 100);
     }
     return result;
+}
+//-------------------------------------------------------------
+
+export const removeHistory = () => {
+    elements.page.innerHTML = "";
+    toggleMessage();
 }
 //-------------------------------------------------------------
 

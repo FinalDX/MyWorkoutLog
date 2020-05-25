@@ -88,7 +88,7 @@ export const renderSet = (exerciseID, set, setNum) => {
 }
 //-------------------------------------------------------------
 
-// Remvoe set from UI
+// Remove set from UI
 export const removeSet = (exerciseID, setID) => {
     const targetSet = document.querySelector(`[data-exerciseid="${exerciseID}"]`).querySelector(`[data-setid="${setID}"]`);
     targetSet.parentElement.removeChild(targetSet);
